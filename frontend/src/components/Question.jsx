@@ -115,8 +115,9 @@ export const Question = ({ questionsFiltered, setActiveQuiz }) => {
                 key={answer}
                 onClick={() => checkAnswer(answer, index)}
                 disabled={answered}
+                style={{ minHeight: '3rem' }} // Ajuste para altura mínima de los botones
               >
-                <p className="font-medium text-center">{answer}</p>
+                <p className="font-medium">{answer}</p>
               </button>
             ))}
           </div>
