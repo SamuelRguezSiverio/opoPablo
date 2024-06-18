@@ -100,10 +100,10 @@ export const Question = ({ questionsFiltered, setActiveQuiz }) => {
             <h1 className="font-bold text-base md:text-lg">{randomQuestions[indexQuestion].question}</h1>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 overflow-hidden">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             {answersRandom.map((answer, index) => (
               <button
-                className={`border p-4 rounded-lg flex justify-center items-center hover:scale-105 overflow-hidden text-ellipsis ${
+                className={`border p-4 rounded-lg flex justify-center items-center hover:scale-105 text-center ${
                   answered
                     ? answer === randomQuestions[indexQuestion].correct_answer
                       ? 'bg-green-500'
@@ -116,7 +116,7 @@ export const Question = ({ questionsFiltered, setActiveQuiz }) => {
                 onClick={() => checkAnswer(answer, index)}
                 disabled={answered}
               >
-                <p className="font-medium text-center break-words max-h-full overflow-y-auto">{answer}</p>
+                <p className="font-medium text-center">{answer}</p>
               </button>
             ))}
           </div>
