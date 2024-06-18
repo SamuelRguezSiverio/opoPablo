@@ -79,7 +79,7 @@ export const Question = ({ questionsFiltered, setActiveQuiz }) => {
           onReset={onReset}
         />
       ) : (
-        <div className="flex flex-col justify-between shadow-md shadow-slate-300 w-full max-w-xl h-full p-4 md:p-10 rounded-lg overflow-hidden">
+        <div className="flex flex-col justify-between h-full p-4 md:p-10 rounded-lg overflow-y-auto">
           <div className="flex justify-between mb-4">
             <span className="text-lg md:text-xl font-bold">
               {indexQuestion + 1} / {randomQuestions.length}
@@ -103,6 +103,7 @@ export const Question = ({ questionsFiltered, setActiveQuiz }) => {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             {answersRandom.map((answer, index) => (
               <button
+                key={answer}
                 className={`border p-4 rounded-lg flex justify-center items-center hover:scale-105 text-center ${
                   answered
                     ? answer === randomQuestions[indexQuestion].correct_answer
@@ -112,10 +113,9 @@ export const Question = ({ questionsFiltered, setActiveQuiz }) => {
                       : 'bg-white'
                     : ''
                 }`}
-                key={answer}
                 onClick={() => checkAnswer(answer, index)}
                 disabled={answered}
-                style={{ minHeight: '3rem' }} // Ajuste para altura mínima de los botones
+                style={{ minHeight: '3rem' }}
               >
                 <p className="font-medium">{answer}</p>
               </button>
